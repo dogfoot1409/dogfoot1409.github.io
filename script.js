@@ -2,6 +2,8 @@ const calender = document.querySelector(".fa-calendar-days");
 const title = document.querySelector(".title");
 const eraseInfo = document.querySelector(".fa-comment-slash");
 const all = document.querySelector(".all");
+const plus = document.querySelector(".fa-circle-plus");
+const minus = document.querySelector(".fa-circle-minus");
 const everyYearData = [
     {
      "year": 1950,
@@ -32030,6 +32032,13 @@ let oneYearData = [
     }
    ]
 
+function eraseOneInfo(item){
+    const OneInfo = document.querySelectorAll(`.${item.target.classList[1]}`);
+    for (let i=0; i<OneInfo.length; i++){
+        document.body.removeChild(OneInfo[i]);
+    }
+}
+
 function giveInfo(item){
     const infobox = document.createElement("div");
     infobox.style.padding = "1.5vh 0.5vh 1vh 1vh";
@@ -32040,8 +32049,8 @@ function giveInfo(item){
     infobox.style.top = item.target.style.top;
     infobox.style.left = item.target.style.left;
     infobox.style.fontSize = "0.5vh";
-    infobox.style.borderRadius = "20px";
-    infobox.className = "infor"
+    infobox.style.borderRadius = "0px 20px 20px 20px";
+    infobox.className = `infor ${item.target.country}`;
     const info0 = document.createElement("div");
     info0.style.textAlign = "center";
     info0.innerText = item.target.country;
@@ -32056,16 +32065,26 @@ function giveInfo(item){
     infobox.appendChild(info2);
     infobox.appendChild(info3);
     document.body.appendChild(infobox);
+
+    const xbox = document.createElement("div");
+    xbox.style.position = "absolute";
+    xbox.className = `infor ${item.target.country}`;
+    xbox.innerText = "❌";
+    xbox.style.fontSize = "10px";
+    xbox.style.top = item.target.style.top;
+    xbox.style.left = item.target.style.left;
+    xbox.addEventListener('click', eraseOneInfo);
+    document.body.appendChild(xbox);
+    }
     
-}
 
 function updateLoationDot(item){
     const LocationDot = document.createElement("i");
     LocationDot.className = "fa-solid fa-location-dot";
     LocationDot.country = item.country;
-    LocationDot.pop = item.pop;
-    LocationDot.emp = item.emp;
-    LocationDot.avh = item.avh;
+    LocationDot.pop = `${item.pop.toLocaleString('en-US')}명`;
+    LocationDot.emp = `${item.emp.toLocaleString('en-US')}명`;
+    LocationDot.avh = `${item.avh.toLocaleString('en-US')}시간`;
     LocationDot.style.position = "absolute";
     LocationDot.style.top = `${item.top}vh`;
     LocationDot.style.left = `${item.left}vh`;
@@ -32130,10 +32149,41 @@ else if (parseInt(year) >= 1950 && parseInt(year) <=2019 && parseInt(year)%1===0
     changeYearData(parseInt(year));
     title.innerText = `${parseInt(year)}년의 국가별 인구, 직업 종사자, 1인당 연간 노동시간`;
     calender.addEventListener("click",changeyear);
-    eraseInfo.addEventListener("click", eraseMessage)
+    eraseInfo.addEventListener("click", eraseMessage);
+    plus.addEventListener("click", zoomIn);
+    minus.addEventListener("click", zoomOut);
 }
 else {
 changeYearData(2019);
 calender.addEventListener("click",changeyear);
 eraseInfo.addEventListener("click", eraseMessage);
+plus.addEventListener("click", zoomIn);
+minus.addEventListener("click", zoomOut);
+}
+
+
+
+
+let nowZoom = 100;
+
+function zoomOut() {   // 화면크기축소
+   nowZoom = nowZoom - 10;
+   if(nowZoom <= 70) nowZoom = 70;   // 화면크기 최대 축소율 70%
+   zooms();
+}
+
+function zoomIn() {   // 화면크기확대
+   nowZoom = nowZoom + 20;
+   if(nowZoom >= 300) nowZoom = 300;   // 화면크기 최대 확대율 200%
+   zooms();
+}
+
+function zoomReset() {
+   nowZoom = 100;   // 원래 화면크기로 되돌아가기
+   zooms();
+}
+
+function zooms() {
+   document.body.style.zoom = nowZoom + "%";
+   
 }
