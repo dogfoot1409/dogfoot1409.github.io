@@ -1,0 +1,48 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css); 
+
+
+body{
+    margin: 0;
+}
+
+.all{
+    background-color: #aaefff;
+}
+
+
+.map{
+    height: 100vh;  
+}
+
+div{
+    white-space: nowrap
+}
+
+
+
+span{
+    display: flex;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.5em;
+    position: absolute;
+    top: 5vh;
+    left: 10vh;
+    align-items: center;
+    
+    
+}
+.title, .fa-comment-slash{
+    position: relative;
+    padding-left: 2vh;
+   
+    font-size: 2em;
+    white-space: nowrap;
+}
+
+
+
+.hidden{display: none;}
+
+#karyl{
+    height:100vh;
+}
