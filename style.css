@@ -20,7 +20,7 @@ div{
 
 
 
-span{
+.upperUI{
     display: flex;
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 1.5em;
@@ -45,4 +45,15 @@ span{
 
 #karyl{
     height:100vh;
+}
+
+footer{
+    display: flex;
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+}
+
+.fa-circle-plus{
+    padding-right: 10px;
 }
