@@ -17,3 +17,19 @@
 3. 아이콘 https://fontawesome.com/icons/comment-slash?f=classic&s=solid
 https://fontawesome.com/icons/location-dot?f=classic&s=solid
 https://fontawesome.com/icons/calendar-days?f=classic&s=solid
+
+# ver2.0
+
+## 스크린샷
+![image](https://user-images.githubusercontent.com/129162825/228304444-f19f06b6-caf2-4f10-8176-a8d8f91726a1.png)
+
+사이트를 봐주신 지인분들의 의견을 받고 몇가지 기능을 추가했습니다.
+
+## 기능
+1. +, -아이콘을 누르면 확대/축소가 가능하게 되었습니다.
+2. 국가별 정보값에 3자리 마다 콤마, 명/시간을 추가했습니다.
+3. 개별로 달려있는 X표시를 누르면 해당 정보가 사라집니다.
+
+## 사용한 자료 및 데이터
+1. 아이콘 https://fontawesome.com/icons/circle-plus?f=classic&s=solid
+https://fontawesome.com/icons/circle-minus?f=classic&s=solid
